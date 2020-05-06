@@ -1,6 +1,6 @@
 +++
 url = "/_redirects"
 outputs = ["redirects"]
-render = true
+draft = true
 private = true
 +++

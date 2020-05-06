@@ -24,12 +24,7 @@ In the root of your site repository:
     ```toml
     theme = ["hugo-redirector", "other-components", "my-theme"]
     ```
-3. If you wish to generate `_redirects` file for Netlify native redirection, copy [\_redirects.md]() to your `content/` directory (at the root) and enable it.
-    ```sh
-    $ cp themes/hugo-redirector/content/_redirects.md content/
-    ```
-
-4. To add a new redirection rule, simply run
+3. To add a new redirection rule, simply run
     ```sh
     $ hugo new redirect/cv.md # Replace cv with a (arbitrary) redirect name
     ```
@@ -42,6 +37,16 @@ In the root of your site repository:
    redirect_enabled = true
    +++
    ```
+4. If you're hosting on Netlify, follow the steps below to enable `_redirects` file generation (recommended)
+
+### Hosting on Netlify
+If you're using Netlify, you'll want to generate the native `_redirects` file. Even though redirects will work fine without it, this will potentially improve the speed and help with SEO.
+
+1. Copy `_redirects.md` to your content folder:
+    ```sh
+    $ cp themes/hugo-redirector/content/_redirects.md content/
+    ```
+2. Edit the file in your text editor and update the value of `draft` from `true` to `false`
 
 That's it. You're done. Now simply build and deploy your site and any requests to `yoursite.com/cv` should be redirected to `yoursite/cv.pdf`.
 
