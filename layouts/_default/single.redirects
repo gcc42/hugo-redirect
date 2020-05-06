@@ -1,7 +1,7 @@
 #--------------------------------------------------------------------------
-# _redirects file for Netlify. Generated using hugo-redirector:
+# _redirects file for Netlify. Generated using hugo-redirect:
 #
-#     https://github.com/gcc42/hugo-redirector
+#     https://github.com/gcc42/hugo-redirect
 # 
 # DO NOT add more rules manually. For instructions on adding more
 # redirect rules here, see Readme.md on the above link.

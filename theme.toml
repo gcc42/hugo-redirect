@@ -1,6 +1,6 @@
-name = "Redirector"
+name = "Hugo Redirect"
 license = "MIT"
-licenselink = "https://github.com/gcc42/hugo-redirector/blob/master/LICENSE.md"
+licenselink = "https://github.com/gcc42/hugo-redirect/blob/master/LICENSE.md"
 description = "Hugo theme component to add easy redirects in a site"
 tags = ["redirect", "hugo", "component"]
 features = [
