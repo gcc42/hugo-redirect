@@ -1,0 +1,16 @@
+name = "Redirector"
+license = "MIT"
+licenselink = "https://github.com/gcc42/hugo-redirector/blob/master/LICENSE.md"
+description = "Hugo theme component to add easy redirects in a site"
+tags = ["redirect", "hugo", "component"]
+features = [
+		"generates _redirect files for netlify",
+		"Supports static meta refresh based redirects,
+		"redirects"
+]
+min_version = 0.67.1
+
+[author]
+    name = "gcc34"
+    homepage = "https://prag.io"
+	

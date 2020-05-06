@@ -1,0 +1,14 @@
+#--------------------------------------------------------------------------
+# _redirects file for Netlify. Generated using hugo-redirector:
+#
+#     https://github.com/gcc42/hugo-redirector
+# 
+# DO NOT add more rules manually. For instructions on adding more
+# redirect rules here, see Readme.md on the above link.
+#--------------------------------------------------------------------------
+
+{{ range where .Site.RegularPages "Type" "redirect" -}}
+{{ if or (not (isset .Params "redirect_enabled")) .Params.redirect_enabled }}
+{{- .Params.url }}    {{ .Params.redirect_to }}
+{{ end }}
+{{- end }}
