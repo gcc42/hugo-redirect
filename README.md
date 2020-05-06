@@ -13,7 +13,7 @@ Redirection comes in very handy in these cases.
 
 Hugo Redirect currently supports static meta refresh based redirects and `_redirect` file generation for [Netlify](https://netlify.com). I plan to add `.htaccess` generation (for Apache / Nginx servers) at some point as well. Static meta refreshes should be avoided in favor of `_redirect/.htaccess` whenever possible. 
 
-This is not a standalone theme. It is a [Hugo](https://gohugo.io) theme component (sort of like a plugin) providing easy URL redirect capabilities to Hugo sites. A working demo of this redirection is available on my site at [https://goofy-meninsky-b0d70c.netlify.app/cv](https://goofy-meninsky-b0d70c.netlify.app/cv).
+This is not a standalone theme. It is a [Hugo](https://gohugo.io) theme component (sort of like a plugin) providing easy URL redirect capabilities to Hugo sites. A working demo of this redirection is available on my site at [https://prag.io/cv](https://prag.io/cv).
 
 Contributions welcome! Send your pull request.
 
