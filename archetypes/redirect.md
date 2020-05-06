@@ -5,4 +5,5 @@ type = "redirect"
 url = ""
 redirect_to = ""
 redirect_enabled = true
+private = true
 +++
