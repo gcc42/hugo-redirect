@@ -1,5 +1,6 @@
+{{ $outputFileName := strings.TrimPrefix "/" (.Permalink | relURL) -}}
 #--------------------------------------------------------------------------
-# _redirects file for Netlify. Generated using hugo-redirect:
+# {{ $outputFileName }} redirects file. Generated using hugo-redirect:
 #
 #     https://github.com/gcc42/hugo-redirect
 # 
@@ -9,6 +10,12 @@
 
 {{ range where .Site.RegularPages "Type" "redirect" -}}
 {{ if or (not (isset .Params "redirect_enabled")) .Params.redirect_enabled }}
+{{ if eq .File.BaseFileName "_redirects" -}}
+{{/* Netlify line */}}
 {{- .Params.url }}    {{ .Params.redirect_to }} 301!
+{{- else -}}
+{{/* .htaccess line */}}
+Redirect 301 {{ .Params.url }}    {{ .Params.redirect_to | absURL }}
+{{- end -}}
 {{ end }}
 {{- end }}
