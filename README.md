@@ -11,7 +11,7 @@ Let's say you
 
 Redirection comes in very handy in these cases.
 
-Hugo Redirect currently supports static meta refresh based redirects and `_redirect` file generation for [Netlify](https://netlify.com). I plan to add `.htaccess` generation (for Apache / Nginx servers) at some point as well. Static meta refreshes should be avoided in favor of `_redirect/.htaccess` whenever possible. 
+Hugo Redirect currently supports static meta refresh based redirects, `_redirect` generation for [Netlify](https://netlify.com) and and `.htaccess` (for Apache / Nginx servers) generation.
 
 This is not a standalone theme. It is a [Hugo](https://gohugo.io) theme component (sort of like a plugin) providing easy URL redirect capabilities to Hugo sites. A working demo of this redirection is available on my site at [https://prag.io/cv](https://prag.io/cv).
 
@@ -45,18 +45,30 @@ In the root of your site repository:
    redirect_to = "/cv.pdf"
    redirect_enabled = true
    ``` 
-4. If you're hosting on Netlify, follow the steps below to enable `_redirects` file generation (recommended)
+4. If you're hosting on Netlify or Apache/Nginx/<Service that supports `.htaccess`>, follow the steps below to enable `_redirects` file generation (recommended)
 
 ### Hosting on Netlify
-If you're using Netlify, you'll want to generate the native `_redirects` file. Even though `meta` redirects work fine without it, this will potentially improve the speed and help with SEO.
-
+If you're using Netlify, you'll want to generate the native `_redirects` file:
 1. Copy `_redirects.md` to your content folder:
     ```sh
     $ cp themes/hugo-redirect/content/_redirects.md content/
     ```
 2. Edit the file in your text editor and update the value of `draft` from `true` to `false`
 
+### Hosting on Apache / Nginx
+Check if your hosting supports the `.htaccess` file configuration. If they do, enable it as:
+1. Copy `_htaccess.md` to your content folder:
+    ```sh
+    $ cp themes/hugo-redirect/content/_htaccess.md content/
+    ```
+2. Edit the file in your text editor and update the value of `draft` from `true` to `false`
+
 That's it. You're done. Now simply build and deploy your site and any requests to `yoursite.com/cv` should be redirected to `yoursite/cv.pdf`.
+
+## Things to note
+1. I'd recommend enabling the appropriate `_redirects`/`.htaccess` based on where you're hosting. (Even though `meta` redirects work fine, this will potentially improve the speed and help with SEO)
+2. Avoid mixing `hugo-redirect` with manual redirection, or you could end up creating a nasty redirect loop
+3. Make sure you enter the `url` and `redirect_to` parameters *exactly* as you want them. This means that if you want `/cv --> /cv.pdf`, make sure you set `url = /cv` and NOT `url = /cv/` (however because of the way Hugo works currently, both `/cv --> /cv.pdf` and `/cv/ --> /cv.pdf` will be set up)
 
 ## Questions?
 Create an issue or email me at `pranjal at prag.io`.
