@@ -8,9 +8,10 @@
 # redirect rules here, see Readme.md on the above link.
 #--------------------------------------------------------------------------
 
+{{ $thisFileName := .File.BaseFileName }}
 {{ range where .Site.RegularPages "Type" "redirect" -}}
 {{ if or (not (isset .Params "redirect_enabled")) .Params.redirect_enabled }}
-{{ if eq .File.BaseFileName "_redirects" -}}
+{{ if eq $thisFileName "_redirects" -}}
 {{/* Netlify line */}}
 {{- .Params.url }}    {{ .Params.redirect_to }} 301!
 {{- else -}}
